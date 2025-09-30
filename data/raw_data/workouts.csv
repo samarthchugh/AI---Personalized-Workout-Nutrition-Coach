@@ -1,0 +1,101 @@
+id,name,duration_min,intensity,muscle_group,age,gender,goal,bmi,fitness_level
+1,Push Ups,10,Medium,Chest,25,Male,Build Muscle,24.5,Intermediate
+2,Squats,15,High,Legs,30,Female,Weight Loss,22.1,Beginner
+3,Plank,5,Low,Core,28,Male,Toning,23.4,Beginner
+4,Burpees,12,High,Full Body,35,Female,Endurance,27.8,Intermediate
+5,Lunges,10,Medium,Legs,22,Male,Build Muscle,21.9,Beginner
+6,Pull Ups,8,High,Back,29,Female,Strength,25.2,Intermediate
+7,Bench Press,15,Medium,Chest,32,Male,Strength,26.1,Advanced
+8,Jumping Jacks,10,Low,Cardio,24,Female,Weight Loss,20.7,Beginner
+9,Bicep Curls,12,Medium,Arms,27,Male,Toning,23.8,Intermediate
+10,Mountain Climbers,8,High,Full Body,31,Female,Endurance,26.4,Intermediate
+11,Deadlifts,15,High,Back,28,Male,Build Muscle,27.5,Advanced
+12,Shoulder Press,10,Medium,Arms,35,Female,Strength,24.6,Intermediate
+13,Crunches,5,Low,Core,23,Male,Toning,22.9,Beginner
+14,Leg Press,15,High,Legs,30,Female,Build Muscle,25.1,Intermediate
+15,Tricep Dips,8,Medium,Arms,26,Male,Toning,23.5,Intermediate
+16,Push Ups,12,High,Chest,32,Female,Endurance,28.2,Advanced
+17,Squats,10,Medium,Legs,24,Male,Weight Loss,22.8,Beginner
+18,Plank,5,Low,Core,29,Female,Toning,23.7,Beginner
+19,Burpees,15,High,Full Body,31,Male,Endurance,26.3,Intermediate
+20,Lunges,12,Medium,Legs,27,Female,Build Muscle,24.1,Intermediate
+21,Push Ups,12,Medium,Chest,26,Female,Toning,22.4,Beginner
+22,Squats,15,High,Legs,29,Male,Build Muscle,25.9,Intermediate
+23,Plank,6,Low,Core,31,Female,Toning,23.3,Beginner
+24,Burpees,12,High,Full Body,33,Male,Endurance,26.7,Intermediate
+25,Lunges,10,Medium,Legs,28,Female,Weight Loss,23.1,Beginner
+26,Pull Ups,8,High,Back,32,Male,Strength,27.2,Intermediate
+27,Bench Press,15,Medium,Chest,29,Female,Build Muscle,24.9,Advanced
+28,Jumping Jacks,10,Low,Cardio,25,Male,Weight Loss,21.5,Beginner
+29,Bicep Curls,12,Medium,Arms,27,Female,Toning,24.3,Intermediate
+30,Mountain Climbers,9,High,Full Body,31,Male,Endurance,26.1,Intermediate
+31,Deadlifts,16,High,Back,30,Female,Build Muscle,25.7,Advanced
+32,Shoulder Press,11,Medium,Arms,34,Male,Strength,27.6,Intermediate
+33,Crunches,6,Low,Core,24,Female,Toning,22.8,Beginner
+34,Leg Press,14,High,Legs,29,Male,Build Muscle,26.2,Intermediate
+35,Tricep Dips,8,Medium,Arms,28,Female,Toning,24.0,Intermediate
+36,Push Ups,12,High,Chest,32,Male,Endurance,28.1,Advanced
+37,Squats,10,Medium,Legs,26,Female,Weight Loss,22.7,Beginner
+38,Plank,5,Low,Core,30,Male,Toning,23.6,Beginner
+39,Burpees,15,High,Full Body,33,Female,Endurance,26.9,Intermediate
+40,Lunges,12,Medium,Legs,27,Male,Build Muscle,24.2,Intermediate
+41,Push Ups,11,Medium,Chest,25,Female,Toning,22.5,Beginner
+42,Squats,16,High,Legs,28,Male,Build Muscle,26.0,Intermediate
+43,Plank,6,Low,Core,32,Female,Toning,23.4,Beginner
+44,Burpees,13,High,Full Body,34,Male,Endurance,27.0,Intermediate
+45,Lunges,10,Medium,Legs,29,Female,Weight Loss,23.3,Beginner
+46,Pull Ups,9,High,Back,31,Male,Strength,27.4,Intermediate
+47,Bench Press,15,Medium,Chest,30,Female,Build Muscle,25.0,Advanced
+48,Jumping Jacks,10,Low,Cardio,26,Male,Weight Loss,21.6,Beginner
+49,Bicep Curls,12,Medium,Arms,28,Female,Toning,24.2,Intermediate
+50,Mountain Climbers,9,High,Full Body,32,Male,Endurance,26.2,Intermediate
+51,Deadlifts,15,High,Back,29,Female,Build Muscle,25.8,Advanced
+52,Shoulder Press,11,Medium,Arms,33,Male,Strength,27.7,Intermediate
+53,Crunches,5,Low,Core,24,Female,Toning,22.9,Beginner
+54,Leg Press,14,High,Legs,30,Male,Build Muscle,26.3,Intermediate
+55,Tricep Dips,8,Medium,Arms,27,Female,Toning,24.1,Intermediate
+56,Push Ups,12,High,Chest,31,Male,Endurance,28.3,Advanced
+57,Squats,10,Medium,Legs,26,Female,Weight Loss,22.9,Beginner
+58,Plank,5,Low,Core,29,Male,Toning,23.5,Beginner
+59,Burpees,15,High,Full Body,34,Female,Endurance,27.1,Intermediate
+60,Lunges,12,Medium,Legs,28,Male,Build Muscle,24.3,Intermediate
+61,Push Ups,12,Medium,Chest,25,Female,Toning,22.6,Beginner
+62,Squats,15,High,Legs,29,Male,Build Muscle,26.1,Intermediate
+63,Plank,6,Low,Core,31,Female,Toning,23.2,Beginner
+64,Burpees,12,High,Full Body,33,Male,Endurance,26.8,Intermediate
+65,Lunges,10,Medium,Legs,28,Female,Weight Loss,23.0,Beginner
+66,Pull Ups,8,High,Back,32,Male,Strength,27.3,Intermediate
+67,Bench Press,15,Medium,Chest,29,Female,Build Muscle,25.1,Advanced
+68,Jumping Jacks,10,Low,Cardio,26,Male,Weight Loss,21.8,Beginner
+69,Bicep Curls,12,Medium,Arms,28,Female,Toning,24.0,Intermediate
+70,Mountain Climbers,9,High,Full Body,32,Male,Endurance,26.0,Intermediate
+71,Deadlifts,15,High,Back,29,Female,Build Muscle,25.9,Advanced
+72,Shoulder Press,11,Medium,Arms,33,Male,Strength,27.5,Intermediate
+73,Crunches,5,Low,Core,24,Female,Toning,22.7,Beginner
+74,Leg Press,14,High,Legs,30,Male,Build Muscle,26.1,Intermediate
+75,Tricep Dips,8,Medium,Arms,27,Female,Toning,24.2,Intermediate
+76,Push Ups,12,High,Chest,31,Male,Endurance,28.4,Advanced
+77,Squats,10,Medium,Legs,26,Female,Weight Loss,22.8,Beginner
+78,Plank,5,Low,Core,29,Male,Toning,23.3,Beginner
+79,Burpees,15,High,Full Body,34,Female,Endurance,27.2,Intermediate
+80,Lunges,12,Medium,Legs,28,Male,Build Muscle,24.4,Intermediate
+81,Push Ups,12,Medium,Chest,25,Female,Toning,22.7,Beginner
+82,Squats,15,High,Legs,29,Male,Build Muscle,26.2,Intermediate
+83,Plank,6,Low,Core,31,Female,Toning,23.3,Beginner
+84,Burpees,12,High,Full Body,33,Male,Endurance,26.9,Intermediate
+85,Lunges,10,Medium,Legs,28,Female,Weight Loss,23.2,Beginner
+86,Pull Ups,8,High,Back,32,Male,Strength,27.6,Intermediate
+87,Bench Press,15,Medium,Chest,29,Female,Build Muscle,25.2,Advanced
+88,Jumping Jacks,10,Low,Cardio,26,Male,Weight Loss,21.9,Beginner
+89,Bicep Curls,12,Medium,Arms,28,Female,Toning,24.1,Intermediate
+90,Mountain Climbers,9,High,Full Body,32,Male,Endurance,26.3,Intermediate
+91,Deadlifts,15,High,Back,29,Female,Build Muscle,26.0,Advanced
+92,Shoulder Press,11,Medium,Arms,33,Male,Strength,27.8,Intermediate
+93,Crunches,5,Low,Core,24,Female,Toning,22.8,Beginner
+94,Leg Press,14,High,Legs,30,Male,Build Muscle,26.2,Intermediate
+95,Tricep Dips,8,Medium,Arms,27,Female,Toning,24.3,Intermediate
+96,Push Ups,12,High,Chest,31,Male,Endurance,28.5,Advanced
+97,Squats,10,Medium,Legs,26,Female,Weight Loss,22.9,Beginner
+98,Plank,5,Low,Core,29,Male,Toning,23.4,Beginner
+99,Burpees,15,High,Full Body,34,Female,Endurance,27.3,Intermediate
+100,Lunges,12,Medium,Legs,28,Male,Build Muscle,24.5,Intermediate
