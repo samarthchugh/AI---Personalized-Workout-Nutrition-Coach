@@ -1,0 +1,101 @@
+meal_name,calories,protein_g,carbs_g,fats_g,age,gender,bmi,goal,diet_type
+Grilled Chicken Salad,350.0,30.0,20.0,10.0,25,male,24.5,build muscle,high protein
+Oatmeal with Berries,250.0,8.0,40.0,5.0,30,female,22.1,weight loss,vegetarian
+Protein Shake,200.0,25.0,10.0,5.0,28,male,23.4,toning,keto
+Avocado Toast,300.0,10.0,35.0,12.0,35,female,27.8,endurance,vegan
+Steamed Salmon with Rice,400.0,35.0,30.0,15.0,22,male,21.9,build muscle,pescatarian
+Vegetable Stir Fry,280.0,12.0,40.0,10.0,29,female,25.2,strength,vegan
+Greek Yogurt with Honey,150.0,10.0,20.0,5.0,32,male,26.1,strength,vegetarian
+Turkey Sandwich,350.0,25.0,30.0,10.0,24,female,20.7,weight loss,high protein
+Boiled Eggs,200.0,15.0,5.0,12.0,27,male,23.8,toning,keto
+Quinoa Salad,300.0,12.0,35.0,8.0,31,female,26.4,endurance,vegan
+Grilled Chicken Salad,350.0,30.0,20.0,10.0,28,male,27.5,build muscle,high protein
+Oatmeal with Berries,250.0,8.0,40.0,5.0,35,female,24.6,weight loss,vegetarian
+Protein Shake,200.0,25.0,10.0,5.0,23,male,22.9,toning,keto
+Avocado Toast,300.0,10.0,35.0,12.0,30,female,25.1,endurance,vegan
+Steamed Salmon with Rice,400.0,35.0,30.0,15.0,26,male,23.5,build muscle,pescatarian
+Vegetable Stir Fry,280.0,12.0,40.0,10.0,32,female,28.2,strength,vegan
+Greek Yogurt with Honey,150.0,10.0,20.0,5.0,24,male,22.8,strength,vegetarian
+Turkey Sandwich,350.0,25.0,30.0,10.0,29,female,23.7,weight loss,high protein
+Boiled Eggs,200.0,15.0,5.0,12.0,31,male,26.3,toning,keto
+Quinoa Salad,300.0,12.0,35.0,8.0,27,female,24.1,endurance,vegan
+Grilled Chicken Salad,360.0,32.0,22.0,11.0,26,male,25.0,build muscle,high protein
+Oatmeal with Berries,260.0,9.0,42.0,6.0,31,female,22.4,weight loss,vegetarian
+Protein Shake,210.0,26.0,12.0,6.0,29,male,23.6,toning,keto
+Avocado Toast,310.0,11.0,36.0,13.0,36,female,28.0,endurance,vegan
+Steamed Salmon with Rice,410.0,36.0,31.0,16.0,23,male,22.0,build muscle,pescatarian
+Vegetable Stir Fry,290.0,13.0,42.0,11.0,30,female,25.5,strength,vegan
+Greek Yogurt with Honey,160.0,11.0,22.0,6.0,33,male,26.3,strength,vegetarian
+Turkey Sandwich,360.0,26.0,32.0,11.0,25,female,21.0,weight loss,high protein
+Boiled Eggs,210.0,16.0,6.0,13.0,28,male,24.0,toning,keto
+Quinoa Salad,310.0,13.0,36.0,9.0,32,female,26.5,endurance,vegan
+Grilled Chicken Salad,355.0,31.0,21.0,11.0,27,male,25.2,build muscle,high protein
+Oatmeal with Berries,255.0,8.0,41.0,5.0,34,female,24.8,weight loss,vegetarian
+Protein Shake,205.0,25.0,11.0,6.0,24,male,23.0,toning,keto
+Avocado Toast,305.0,10.0,35.0,12.0,31,female,25.2,endurance,vegan
+Steamed Salmon with Rice,405.0,35.0,30.0,15.0,27,male,23.6,build muscle,pescatarian
+Vegetable Stir Fry,285.0,12.0,41.0,10.0,33,female,28.4,strength,vegan
+Greek Yogurt with Honey,155.0,10.0,21.0,5.0,25,male,23.0,strength,vegetarian
+Turkey Sandwich,355.0,25.0,31.0,10.0,30,female,23.8,weight loss,high protein
+Boiled Eggs,205.0,15.0,5.0,12.0,32,male,26.1,toning,keto
+Quinoa Salad,305.0,12.0,35.0,8.0,28,female,24.2,endurance,vegan
+Grilled Chicken Salad,350.0,30.0,20.0,10.0,26,male,24.6,build muscle,high protein
+Oatmeal with Berries,250.0,8.0,40.0,5.0,31,female,22.3,weight loss,vegetarian
+Protein Shake,200.0,25.0,10.0,5.0,29,male,23.5,toning,keto
+Avocado Toast,300.0,10.0,35.0,12.0,36,female,27.2,endurance,vegan
+Steamed Salmon with Rice,400.0,35.0,30.0,15.0,24,male,22.2,build muscle,pescatarian
+Vegetable Stir Fry,280.0,12.0,40.0,10.0,31,female,25.0,strength,vegan
+Greek Yogurt with Honey,150.0,10.0,20.0,5.0,33,male,26.5,strength,vegetarian
+Turkey Sandwich,350.0,25.0,30.0,10.0,25,female,21.2,weight loss,high protein
+Boiled Eggs,200.0,15.0,5.0,12.0,28,male,23.9,toning,keto
+Quinoa Salad,300.0,12.0,35.0,8.0,32,female,26.0,endurance,vegan
+Grilled Chicken Salad,360.0,32.0,22.0,11.0,27,male,25.1,build muscle,high protein
+Oatmeal with Berries,260.0,9.0,42.0,6.0,34,female,22.7,weight loss,vegetarian
+Protein Shake,210.0,26.0,12.0,6.0,24,male,23.3,toning,keto
+Avocado Toast,310.0,11.0,36.0,13.0,31,female,25.4,endurance,vegan
+Steamed Salmon with Rice,410.0,36.0,31.0,16.0,27,male,23.7,build muscle,pescatarian
+Vegetable Stir Fry,290.0,13.0,42.0,11.0,33,female,28.3,strength,vegan
+Greek Yogurt with Honey,160.0,11.0,22.0,6.0,25,male,23.1,strength,vegetarian
+Turkey Sandwich,360.0,26.0,32.0,11.0,30,female,23.9,weight loss,high protein
+Boiled Eggs,210.0,16.0,6.0,13.0,32,male,26.2,toning,keto
+Quinoa Salad,310.0,13.0,36.0,9.0,28,female,24.3,endurance,vegan
+Grilled Chicken Salad,355.0,31.0,21.0,11.0,27,male,25.3,build muscle,high protein
+Oatmeal with Berries,255.0,8.0,41.0,5.0,34,female,24.9,weight loss,vegetarian
+Protein Shake,205.0,25.0,11.0,6.0,24,male,23.1,toning,keto
+Avocado Toast,305.0,10.0,35.0,12.0,31,female,25.3,endurance,vegan
+Steamed Salmon with Rice,405.0,35.0,30.0,15.0,27,male,23.8,build muscle,pescatarian
+Vegetable Stir Fry,285.0,12.0,41.0,10.0,33,female,28.5,strength,vegan
+Greek Yogurt with Honey,155.0,10.0,21.0,5.0,25,male,23.2,strength,vegetarian
+Turkey Sandwich,355.0,25.0,31.0,10.0,30,female,23.7,weight loss,high protein
+Boiled Eggs,205.0,15.0,5.0,12.0,32,male,26.0,toning,keto
+Quinoa Salad,305.0,12.0,35.0,8.0,28,female,24.4,endurance,vegan
+Grilled Chicken Salad,350.0,30.0,20.0,10.0,26,male,24.7,build muscle,high protein
+Oatmeal with Berries,250.0,8.0,40.0,5.0,31,female,22.5,weight loss,vegetarian
+Protein Shake,200.0,25.0,10.0,5.0,29,male,23.6,toning,keto
+Avocado Toast,300.0,10.0,35.0,12.0,36,female,27.3,endurance,vegan
+Steamed Salmon with Rice,400.0,35.0,30.0,15.0,24,male,22.3,build muscle,pescatarian
+Vegetable Stir Fry,280.0,12.0,40.0,10.0,31,female,25.1,strength,vegan
+Greek Yogurt with Honey,150.0,10.0,20.0,5.0,33,male,26.6,strength,vegetarian
+Turkey Sandwich,350.0,25.0,30.0,10.0,25,female,21.3,weight loss,high protein
+Boiled Eggs,200.0,15.0,5.0,12.0,28,male,24.0,toning,keto
+Quinoa Salad,300.0,12.0,35.0,8.0,32,female,26.1,endurance,vegan
+Grilled Chicken Salad,360.0,32.0,22.0,11.0,27,male,25.4,build muscle,high protein
+Oatmeal with Berries,260.0,9.0,42.0,6.0,34,female,22.8,weight loss,vegetarian
+Protein Shake,210.0,26.0,12.0,6.0,24,male,23.4,toning,keto
+Avocado Toast,310.0,11.0,36.0,13.0,31,female,25.5,endurance,vegan
+Steamed Salmon with Rice,410.0,36.0,31.0,16.0,27,male,23.9,build muscle,pescatarian
+Vegetable Stir Fry,290.0,13.0,42.0,11.0,33,female,28.6,strength,vegan
+Greek Yogurt with Honey,160.0,11.0,22.0,6.0,25,male,23.3,strength,vegetarian
+Turkey Sandwich,360.0,26.0,32.0,11.0,30,female,24.0,weight loss,high protein
+Boiled Eggs,210.0,16.0,6.0,13.0,32,male,26.3,toning,keto
+Quinoa Salad,310.0,13.0,36.0,9.0,28,female,24.5,endurance,vegan
+Grilled Chicken Salad,355.0,31.0,21.0,11.0,27,male,25.5,build muscle,high protein
+Oatmeal with Berries,255.0,8.0,41.0,5.0,34,female,25.0,weight loss,vegetarian
+Protein Shake,205.0,25.0,11.0,6.0,24,male,23.2,toning,keto
+Avocado Toast,305.0,10.0,35.0,12.0,31,female,25.6,endurance,vegan
+Steamed Salmon with Rice,405.0,35.0,30.0,15.0,27,male,24.0,build muscle,pescatarian
+Vegetable Stir Fry,285.0,12.0,41.0,10.0,33,female,28.7,strength,vegan
+Greek Yogurt with Honey,155.0,10.0,21.0,5.0,25,male,23.4,strength,vegetarian
+Turkey Sandwich,355.0,25.0,31.0,10.0,30,female,24.1,weight loss,high protein
+Boiled Eggs,205.0,15.0,5.0,12.0,32,male,26.1,toning,keto
+Quinoa Salad,305.0,12.0,35.0,8.0,28,female,24.6,endurance,vegan
