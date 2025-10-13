@@ -28,3 +28,6 @@ sentence-transformers==5.1.1
 transformers==4.56.2
 torch==2.8.0
 faiss-cpu==1.7.4
+accelerate
+safetensors
+bitsandbytes
