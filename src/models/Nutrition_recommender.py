@@ -1,5 +1,6 @@
 from src.exception.exception import PersonalizedCoachException
 from src.logging.logger import logging
+from src.contants import *
 import os
 import sys
 import joblib
@@ -18,7 +19,7 @@ class NutritionRecommender:
     Both pipelines include a ColumnTransformer with numeric imputer + scaler and categorical OHE.
     """
 
-    def __init__(self,categorial_features=None, numerical_features=None, random_state=42):
+    def __init__(self,categorial_features=None, numerical_features=None, random_state=RANDOM_STATE):
         self.categorical_features = categorial_features or ['gender', 'goal', 'diet_type']
         self.numerical_features = numerical_features or ['age', 'bmi']
         self.random_state = random_state

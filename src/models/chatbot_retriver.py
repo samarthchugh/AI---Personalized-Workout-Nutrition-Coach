@@ -16,7 +16,7 @@ class ChatRetriever:
     - fits NearestNeighbors on embeddings (cosine)
     - Saves embeddings array, FAQ dataframe, embedder, and NN model as artifacts.
     """
-    def __init__(self, embedded_model_name='all_MiniLM-L6-v2', device=None):
+    def __init__(self, embedded_model_name='all-MiniLM-L6-v2', device=None):
         self.embedded_model_name = embedded_model_name
         self.device = device
         self.embedder = SentenceTransformer(self.embedded_model_name, device = self.device)
