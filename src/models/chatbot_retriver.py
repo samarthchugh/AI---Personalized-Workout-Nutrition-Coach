@@ -2,6 +2,9 @@ import os,sys
 import joblib
 import numpy as np
 import torch
+from dotenv import load_dotenv
+load_dotenv()
+from huggingface_hub import InferenceClient
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from sentence_transformers import SentenceTransformer
 from sklearn.neighbors import NearestNeighbors
@@ -123,39 +126,45 @@ class ChatRetriever:
     
 class Generative_Chatbot:
     """
-    Handles all generative text generation using a LLM (like Gemma)
+    API-based generative chatbot using Hugging Face Inference API.
     """
-    def __init__(self, model_name: str='goggle/gemma-2b-it', device:str=None):
-        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        self.model_name = model_name
+    def __init__(self, model_name: str='google/gemma-2-2b-it', device:str=None, hf_token=None, temperature=0.7, top_p=0.9, repetition_penalty=1.2):
+        try:
+            self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+            self.model_name = model_name
+            self.hf_token = hf_token or os.getenv("HF_TOKEN")
+            self.temperature=temperature
+            self.top_p=top_p
+            self.repetition_penalty=repetition_penalty
+            
+            logging.info(f"Initializing API-based Generative ChatBot: {model_name}")
+            
+            self.client=InferenceClient(provider="auto", api_key=self.hf_token)
+        except PersonalizedCoachException as e:
+            logging.info(f"Error initializing API Generative Chatbot: {e}")
+            raise PersonalizedCoachException(e, sys)
         
-        print(f"[Generative Chatbot] Loading model: {model_name} on {self.device}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            device_map="auto" if self.device=="cuda" else None,
-            torch_dtype=torch.float16 if self.device=='cuda' else torch.float32,
-        ).to(self.device)
-        
-    def generate(self, prompt:str, max_new_tokens:int = 700, temperature:float = 0.7, top_p:float=0.9, repetition_penalty: float=1.2)->str :
+    def generate(self, messages:list)->str :
         """
-        Generate text response from the model given a prompt.
+        Generate text using Hugging Face API with streaming.
         """
         try:
-            inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
-            logging.info("Generating the Generative response.")
-            outputs = self.model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                do_sample=True,
-                temperature=temperature,
-                top_p=top_p,
-                repetition_penalty=repetition_penalty
+            logging.info("Generating response via HuggingFace API...")
+            stream = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=messages,
+                temperature=self.temperature,
+                top_p=self.top_p,
+                stream=True
             )
-            response=self.tokenizer.decode(outputs[0],skip_special_tokens=True)
-            return response
+            
+            # stream response
+            output=""
+            for chunk in stream:
+                output+=chunk.choices[0].delta.content
+            return output
         except PersonalizedCoachException as e:
-            logging.info(f"Error while generating the response: {e}")
+            logging.info(f"Error generating API response: {e}")
             raise PersonalizedCoachException(e,sys)
 
 class Hybrid_Chatbot:
@@ -168,7 +177,7 @@ class Hybrid_Chatbot:
             self.retriever=retriever
             self.generator=generator
             self.threshold=retrievel_threshold
-            logging.info("HybridChatbot intialized successfully.")
+            logging.info("HybridChatbot intialized with API generator successfully...")
         except PersonalizedCoachException as e:
             logging.info(f"Error initializing Hybrid Chatbot: {e}")
             raise PersonalizedCoachException(e,sys)
@@ -184,21 +193,13 @@ class Hybrid_Chatbot:
             # Combine FAQ Q&A pairs into contextual knowledge
             context = "\n\n".join([f"Q: {r[2]}\nA: {r[3]}" for r in results])
 
-            prompt = f"""
-                You are a professional AI fitness and nutrition assistant.
-                Below are some FAQs that might help answer the user’s question.
-
-                Context:
-                {context}
-
-                User Question:
-                {query}
-
-                Please give a detailed, structured, and motivational answer.
-                If the user asks for a plan or schedule, format it day-by-day clearly.
-        """
+            messages = [
+                {'role':"system","content":"You are a professional AI fitness and nutrition assistant."},
+                {'role':'assistant',"content":f"Here are some FAQ entries that might help:\n\n{context}"},
+                {'role':'user','content':query}
+            ]
             # Use the LLM to generate a contextual, motivational, and structured answer
-            gen_response = self.generator.generate(prompt)
+            gen_response = self.generator.generate(messages)
             return gen_response
 
         except PersonalizedCoachException as e:
