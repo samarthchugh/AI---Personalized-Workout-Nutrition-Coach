@@ -11,7 +11,7 @@ base = declarative_base()
 
 class Workout(base):
     __tablename__ = WORKOUTS_TABLE_NAME
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String(100), nullable=False)
     duration_min = Column(Float, nullable=False)
     intensity = Column(String(50), nullable=False)
@@ -24,7 +24,7 @@ class Workout(base):
     
 class Nutrition(base):
     __tablename__ = NUTRITION_TABLE_NAME
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     meal_name = Column(String(100), nullable=False)
     calories = Column(Float, nullable=False)
     protein_g = Column(Float, nullable=False)
@@ -38,6 +38,6 @@ class Nutrition(base):
     
 class FAQ(base):
     __tablename__ = FAQ_TABLE_NAME
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     question = Column(Text, nullable=False)
     answer = Column(Text, nullable=False)

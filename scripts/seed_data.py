@@ -4,6 +4,7 @@ from src.db.connection import get_engine
 from src.db.models import base, Workout, Nutrition, FAQ
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy import text
 import pandas as pd
 import os
 import sys
@@ -50,6 +51,7 @@ class DataBaseSeeder:
             session.commit()
             session.close()
             logging.info(f"Seeded {records_added} rows into {table_type} table from {csv_path}")
+            self.reset_sequence(ModelClass.__tablename__)
             logging.info("Workouts data seeded successfully.")
         except IntegrityError as ie:
             logging.error(f"Integrity error while seeding workouts: {ie}")
@@ -58,8 +60,29 @@ class DataBaseSeeder:
             logging.error(f"Error occurred while seeding workouts: {e}")
             raise PersonalizedCoachException(e, sys)
         
+    def reset_sequence(self, table_name:str):
+        """Ensure PostgreSQL autoincrement sequences match max(id) after bulk insert"""
+        try:
+            with self.engine.connect() as conn:
+                conn.execute(
+                    text(
+                        f"""
+                    SELECT setval(
+                        pg_get_serial_sequence('"{table_name}"', 'id'),
+                        COALESCE((SELECT MAX(id) FROM "{table_name}"), 1),
+                        TRUE
+                    );
+                    """
+                    )
+                )
+                conn.commit()
+                logging.info(f"🔄 Sequence reset for table: {table_name}")
+        except PersonalizedCoachException as e:
+            logging.error(f"Error resetting sequence for {table_name}: {e}")
+            raise PersonalizedCoachException(e, sys)
+        
 if __name__ == "__main__":
     seeder = DataBaseSeeder()
-    # seeder.seed_csvs(csv_path=os.path.join("data", "raw_data", "workouts.csv"), table_type="Workout")
+    seeder.seed_csvs(csv_path=os.path.join("data", "raw_data", "workouts.csv"), table_type="Workout")
     seeder.seed_csvs(csv_path=os.path.join("data", "raw_data", "nutrition.csv"), table_type="Nutrition")
-    # seeder.seed_csvs(csv_path=os.path.join("data", "raw_data", "faq.csv"), table_type="FAQ")
+    seeder.seed_csvs(csv_path=os.path.join("data", "raw_data", "faq.csv"), table_type="FAQ")

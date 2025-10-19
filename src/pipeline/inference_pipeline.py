@@ -85,38 +85,38 @@ class InferencePipeline:
             logging.info(f"Error during ChatBot inference: {e}")
             raise PersonalizedCoachException(e,sys)
         
-# if __name__=="__main__":
-#     try:
-#         inference = InferencePipeline()
-#          # Example 1: Nutrition Prediction
-#         nutrition_input = {
-#             'age': 28,
-#             'gender': 'female',
-#             'bmi': 22.4,
-#             'goal': 'muscle_gain',
-#             'diet_type': 'vegetarian'
-#         }
-#         nutrition_reco = inference.recommend_nutrition(nutrition_input)
-#         print("\n🧠 Nutrition Recommendation:\n", nutrition_reco)
+if __name__=="__main__":
+    try:
+        inference = InferencePipeline()
+         # Example 1: Nutrition Prediction
+        nutrition_input = {
+            'age': 28,
+            'gender': 'female',
+            'bmi': 22.4,
+            'goal': 'muscle_gain',
+            'diet_type': 'vegetarian'
+        }
+        nutrition_reco = inference.recommend_nutrition(nutrition_input)
+        print("\n🧠 Nutrition Recommendation:\n", nutrition_reco)
         
-#          # Example 2: Workout Prediction
-#         workout_input = {
-#             'intensity': 'high',
-#             'muscle_group': 'legs',
-#             'age': 28,
-#             'gender': 'female',
-#             'goal': 'muscle_gain',
-#             'bmi': 22.4,
-#             'fitness_level': 'advanced'
-#         }
-#         workout_reco = inference.recommend_workout(workout_input)
-#         print("\n🏋️ Workout Recommendation:\n", workout_reco)
+         # Example 2: Workout Prediction
+        workout_input = {
+            'intensity': 'high',
+            'muscle_group': 'legs',
+            'age': 28,
+            'gender': 'female',
+            'goal': 'muscle_gain',
+            'bmi': 22.4,
+            'fitness_level': 'advanced'
+        }
+        workout_reco = inference.recommend_workout(workout_input)
+        print("\n🏋️ Workout Recommendation:\n", workout_reco)
         
         
-#         # Example 3: Chatbot Response
-#         query = "What is bmi?"
-#         bot_response = inference.chat_with_bot(query)
-#         print("\n🤖 Chatbot Response:\n", bot_response)
+        # Example 3: Chatbot Response
+        query = "What is bmi?"
+        bot_response = inference.chat_with_bot(query)
+        print("\n🤖 Chatbot Response:\n", bot_response)
         
-#     except PersonalizedCoachException as e:
-#         raise PersonalizedCoachException(e,sys)
+    except PersonalizedCoachException as e:
+        raise PersonalizedCoachException(e,sys)
