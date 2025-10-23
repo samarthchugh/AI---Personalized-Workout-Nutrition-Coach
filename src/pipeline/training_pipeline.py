@@ -1,4 +1,4 @@
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 from src.contants import *
 import os, sys
@@ -11,7 +11,11 @@ from sklearn.preprocessing import LabelEncoder
 import mlflow
 import mlflow.sklearn
 import dagshub
+from dotenv import load_dotenv
+load_dotenv()
 dagshub.init(repo_owner='samarthchugh', repo_name='AI---Personalized-Workout-Nutrition-Coach', mlflow=True)
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+mlflow.set_experiment(os.getenv("MLFLOW_EXPERIMENT_NAME"))
 
 from src.models.Nutrition_recommender import NutrientModel, NutritionRecommender
 from src.models.workout_recommender import WorkoutModel, WorkoutRecommender
@@ -31,7 +35,7 @@ class TrainingPipeline:
         
     def train_nutrition(self):
         try:
-            mlflow.set_experiment("Nutrition-Recommender")
+            # mlflow.set_experiment("Nutrition-Recommender")
 
             df = pd.read_csv(self.nutrition_csv)
             feature_cols = ['age','gender','bmi','goal','diet_type']
@@ -101,7 +105,7 @@ class TrainingPipeline:
         
     def train_workout(self):
         try:
-            mlflow.set_experiment("Workout-Recommender")
+            # mlflow.set_experiment("Workout-Recommender")
             df = pd.read_csv(self.workout_csv)
             feature_cols = ['intensity','muscle_group','age','gender','goal','bmi','fitness_level']
             target_workout_name = 'name'
@@ -165,7 +169,7 @@ class TrainingPipeline:
         
     def train_retrievel_chatbot(self):
         try:
-            mlflow.set_experiment("ChatBot-Retriever")
+            # mlflow.set_experiment("ChatBot-Retriever")
             df = pd.read_csv(self.faq_csv)
             # expect columns ['question','answer']
             if not {'question','answer'}.issubset(set(df.columns)):
@@ -191,6 +195,21 @@ class TrainingPipeline:
         except PersonalizedCoachException as e:
             logging.info(f"Error occured in train_retrievel_chatbot function: {e}")
             raise PersonalizedCoachException(e,sys)
+        
+
+    def initiate_training(self):
+        try:
+            logging.info("Initiate Training ....")
+            nutrition_training=self.train_nutrition()
+            print("Nutrition Model Trained...")
+            workout_training=self.train_workout()
+            print("Workout Model Trained...")
+            chatbot_training=self.train_retrievel_chatbot()
+            print("Retriever ChatBot Trained...")
+        except PersonalizedCoachException as e:
+            logging.info(f"error in initiating the model training: {e}")
+            raise PersonalizedCoachException(e,sys)
+            
 
 
 # def main():
@@ -205,5 +224,6 @@ class TrainingPipeline:
 #     except PersonalizedCoachException as e:
 #         raise PersonalizedCoachException(e,sys)
     
-# if __name__=="__main__":
-#     main()
+if __name__=="__main__":
+    trainer=TrainingPipeline().initiate_training()
+    print(trainer)

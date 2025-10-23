@@ -1,4 +1,4 @@
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

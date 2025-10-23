@@ -4,7 +4,7 @@ from src.pipeline.inference_pipeline import InferencePipeline
 from sqlalchemy.orm import sessionmaker, Session
 from src.db.models import base, Workout, Nutrition, FAQ
 from src.db.connection import get_engine
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 import uvicorn
 
@@ -125,5 +125,5 @@ def get_all_workout_records(db:Session=Depends(get_db)):
     return {'count':len(records), 'data':records} 
 
 if __name__=="__main__":
-    uvicorn.run("src.routers.main:app", host="0.0.0.0", port=8000, reload=True)    
+    uvicorn.run("src.API.main:app", host="0.0.0.0", port=8000, reload=True)    
 

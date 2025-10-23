@@ -1,5 +1,5 @@
 ## schema for db
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 from src.contants import WORKOUTS_TABLE_NAME, NUTRITION_TABLE_NAME, FAQ_TABLE_NAME
 import sys

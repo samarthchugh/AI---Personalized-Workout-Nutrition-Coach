@@ -1,5 +1,5 @@
 from src.exception.exception import PersonalizedCoachException
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.contants import *
 import os,sys
 import joblib

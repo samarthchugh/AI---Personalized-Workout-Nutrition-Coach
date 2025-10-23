@@ -1,4 +1,4 @@
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 from src.db.connection import get_engine
 from src.db.models import base, Workout, Nutrition, FAQ

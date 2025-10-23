@@ -1,0 +1,64 @@
+# Ignore virtual environments
+.venv/
+env/
+venv/
+
+# Ignore caches and compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore version control folders
+.git/
+.gitignore
+
+# Ignore system files and IDE configs
+.DS_Store
+.vscode/
+.idea/
+
+# Ignore Airflow logs and temporary data
+logs/
+airflow/logs/
+airflow/tmp/
+
+# Ignore local build artifacts
+build/
+dist/
+*.egg-info/
+
+# Ignore large data files if mounted as volume
+# (comment out if you want to package data inside the image)
+data/
+notebooks/
+checkpoints/
+artifacts/
+
+# Ignore test directories
+tests/
+*.test
+*.coverage
+.coverage
+
+# Ignore environment/config files (for security)
+.env
+*.env
+.env.*
+
+# Ignore Docker and Compose files (not needed in build context)
+docker-compose.yml
+docker-compose.yaml
+Dockerfile
+
+# Ignore ML model artifacts and weights (usually mounted or versioned)
+models/
+*.joblib
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# Ignore development utilities
+__pycache__/
+*.ipynb_checkpoints/

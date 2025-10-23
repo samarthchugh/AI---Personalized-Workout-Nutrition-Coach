@@ -4,7 +4,7 @@ from sqlalchemy.engine import Engine
 from sqlalchemy.inspection import inspect
 from sqlalchemy.exc import NoSuchTableError
 
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 
 class Extractor:

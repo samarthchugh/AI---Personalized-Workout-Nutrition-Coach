@@ -10,7 +10,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.neighbors import NearestNeighbors
 import pandas as pd
 from src.exception.exception import PersonalizedCoachException
-from src.logging.logger import logging
+from src.custom_logging.logger import logging
 
 class ChatRetriever:
     """

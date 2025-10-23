@@ -1,5 +1,5 @@
 import sys
-from src.logging import logger
+from src.custom_logging import logger
 
 class PersonalizedCoachException(Exception):
     def __init__(self,error_message,error_details:sys):
