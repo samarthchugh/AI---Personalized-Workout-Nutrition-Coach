@@ -200,11 +200,11 @@ class TrainingPipeline:
     def initiate_training(self):
         try:
             logging.info("Initiate Training ....")
-            nutrition_training=self.train_nutrition()
+            self.train_nutrition()
             print("Nutrition Model Trained...")
-            workout_training=self.train_workout()
+            self.train_workout()
             print("Workout Model Trained...")
-            chatbot_training=self.train_retrievel_chatbot()
+            self.train_retrievel_chatbot()
             print("Retriever ChatBot Trained...")
         except PersonalizedCoachException as e:
             logging.info(f"error in initiating the model training: {e}")

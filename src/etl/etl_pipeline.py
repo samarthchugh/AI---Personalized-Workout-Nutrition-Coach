@@ -43,3 +43,7 @@ class ETLPipeline:
         except PersonalizedCoachException as e:
             logging.error(f"Error occured while running etl_pipeline: {e}")
             raise PersonalizedCoachException(e,sys)
+        
+if __name__=="__main__":
+    etl=ETLPipeline().run_etl()
+    print(etl)
