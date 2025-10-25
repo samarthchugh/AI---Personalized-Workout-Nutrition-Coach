@@ -30,7 +30,7 @@ dist/
 
 # Ignore large data files if mounted as volume
 # (comment out if you want to package data inside the image)
-data/
+data/processed/
 notebooks/
 checkpoints/
 artifacts/
@@ -41,10 +41,7 @@ tests/
 *.coverage
 .coverage
 
-# Ignore environment/config files (for security)
-.env
-*.env
-.env.*
+
 
 # Ignore Docker and Compose files (not needed in build context)
 docker-compose.yml

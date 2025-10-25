@@ -215,3 +215,4 @@ app_logs/
 config/
 plugins/
 logs/
+/models
