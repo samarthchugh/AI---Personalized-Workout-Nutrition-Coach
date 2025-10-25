@@ -1,0 +1,21 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python -m src.utils.train
+    deps:
+    - path: src/etl/etl_pipeline.py
+      hash: md5
+      md5: 16362f066ceccd8bd4ee447b11d5cf6c
+      size: 2120
+    - path: src/exception/exception.py
+      hash: md5
+      md5: ee70e70a54b19a38f566ecc4cb702f44
+      size: 800
+    - path: src/pipeline/training_pipeline.py
+      hash: md5
+      md5: da4ffe0e0e8a0de0342ec64989b891b0
+      size: 10488
+    - path: src/utils/train.py
+      hash: md5
+      md5: e41a86e36889bccc2ed3ce305c34fc40
+      size: 719

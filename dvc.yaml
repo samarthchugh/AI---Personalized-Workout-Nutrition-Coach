@@ -1,0 +1,12 @@
+stages:
+  train:
+    cmd: python -m src.utils.train
+    deps:
+      - src/utils/train.py
+      - src/pipeline/training_pipeline.py
+      - src/etl/etl_pipeline.py
+      - src/exception/exception.py
+      # - src/models/model_utils.py
+    # outs:
+      # - data/processed
+      # - models/

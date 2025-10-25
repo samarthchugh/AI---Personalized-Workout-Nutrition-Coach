@@ -1,4 +1,4 @@
-from src.custom_logging.logger import logging
+# from src.custom_logging.logger import logging
 from src.exception.exception import PersonalizedCoachException
 from src.etl.etl_pipeline import ETLPipeline
 from src.pipeline.training_pipeline import TrainingPipeline
