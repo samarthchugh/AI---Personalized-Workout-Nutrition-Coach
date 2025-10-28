@@ -2,6 +2,8 @@
 .venv/
 env/
 venv/
+.env
+*.env
 
 # Ignore caches and compiled Python files
 __pycache__/
@@ -44,9 +46,9 @@ tests/
 
 
 # Ignore Docker and Compose files (not needed in build context)
-docker-compose.yml
-docker-compose.yaml
-Dockerfile
+# docker-compose.yml
+# docker-compose.yaml
+# Dockerfile
 
 # Ignore ML model artifacts and weights (usually mounted or versioned)
 models/
