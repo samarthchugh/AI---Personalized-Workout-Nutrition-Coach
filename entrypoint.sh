@@ -7,8 +7,8 @@ echo "🚀 Starting AI Fitness Coach API..."
 # 1. Wait for PostgreSQL
 # ============================================
 echo "⏳ Waiting for PostgreSQL..."
-DB_HOST=$(echo $DATABASE_URL | sed -n 's/.*@\([^:]*\):.*/\1/p')
-DB_PORT=$(echo $DATABASE_URL | sed -n 's/.*:\([0-9]*\)\/.*/\1/p')
+DB_HOST=$(echo $DB_URI | sed -n 's/.*@\([^:]*\):.*/\1/p')
+DB_PORT=$(echo $DB_URI | sed -n 's/.*:\([0-9]*\)\/.*/\1/p')
 
 if [ -z "$DB_HOST" ]; then
     DB_HOST="postgres"

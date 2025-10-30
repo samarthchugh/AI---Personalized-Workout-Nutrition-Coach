@@ -154,5 +154,19 @@ jobs:
 
       - name: Health Check
         run: |
-          sleep 20
-          curl -f http://${{ secrets.EC2_HOST }}/api/health || exit 1
+          echo "Waiting for API to start..."
+          sleep 60  # Increased from 20 to 60 seconds
+    
+          # Retry health check up to 5 times
+          for i in {1..5}; do
+            echo "Attempt $i/5..."
+            if curl -f http://${{ secrets.EC2_HOST }}/api/health; then
+                echo "✅ API is healthy!"
+                exit 0
+            fi
+            echo "API not ready yet, waiting 10 seconds..."
+            sleep 10
+          done
+    
+          echo "❌ API health check failed after 5 attempts"
+          exit 1
