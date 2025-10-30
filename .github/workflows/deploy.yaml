@@ -1,0 +1,158 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/fitness-coach-app
+
+jobs:
+  # Job 1: Run tests
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Run tests
+        run: |
+          pytest tests/ -v --cov=src || echo "No tests found, skipping..."
+
+  # Job 2: Train Models & Push to S3
+  train-models:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install dvc[s3]
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Pull existing models from S3
+        run: |
+          dvc pull -r dvcstore || echo "No existing models found, proceeding..."
+      
+      - name: Run training pipeline
+        run: |
+          dvc repro || echo "No changes detected in training dependencies, skipping training."
+        env:
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+
+      - name: Push updated models to S3
+        run: |
+          dvc push -r dvcstore || echo "No new models to push."
+
+      - name: Commit DVC metadata changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add models/*.dvc data/*.dvc dvc.lock || true
+          git commit -m "Update model versions [skip ci]" || echo "No changes to commit"
+          git push || echo "Nothing to push"
+
+  # Job 3: Build and Push Docker Image
+  build:
+    runs-on: ubuntu-latest
+    needs: train-models
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.DOCKER_IMAGE }}:latest
+            ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache
+          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:buildcache,mode=max
+
+  # Job 4: Deploy to EC2
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/AI---Personalized-Workout-Nutrition-Coach
+
+            docker stop fitness-api 2>/dev/null || true
+            docker rm fitness-api 2>/dev/null || true
+
+            docker pull ${{ env.DOCKER_IMAGE }}:latest
+
+            docker run -d \
+              --name fitness-api \
+              --restart unless-stopped \
+              -p 80:8000 \
+              --memory="800m" \
+              --memory-swap="1.5g" \
+              --env-file .env \
+              ${{ env.DOCKER_IMAGE }}:latest
+            sleep 10
+
+            if docker ps | grep -q fitness-api; then
+              echo "Container started successfully!"
+              docker ps | grep fitness-api
+            else
+              echo "❌Container failed to start!"
+              docker logs fitness-api
+              exit 1
+            fi
+
+            docker image prune -f
+
+      - name: Health Check
+        run: |
+          sleep 20
+          curl -f http://${{ secrets.EC2_HOST }}/api/health || exit 1

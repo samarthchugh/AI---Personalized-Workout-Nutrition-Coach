@@ -6,13 +6,15 @@ WORKDIR /app
 # - git for DVC
 # - postgresql-client for database interactions
 RUN apt-get update && apt-get install -y \
-    git \ 
-    postgresql-client \ 
-    && rm -rf /var/lib/apt/lists/*
+    git \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 ## Install Python dependencies
+RUN pip install --no-cache-dir torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && pip cache purge
 
 # Copy application code
 COPY scripts/ ./scripts/
@@ -31,8 +33,8 @@ COPY dvc.yaml dvc.lock ./
 
 # Initialize git repo (DVC requires it)
 RUN git init && \
-    git config --global user.email "docker@example.com" &&\
-    git config --global user.name "DockerUser" 
+    git config --global user.email "api@fitness-coach" &&\
+    git config --global user.name "Fitness Coach API" 
 
 # Copy and setup entrypoint
 COPY entrypoint.sh .
