@@ -124,6 +124,10 @@ def get_all_workout_records(db:Session=Depends(get_db)):
     records = db.query(Workout).all()
     return {'count':len(records), 'data':records} 
 
+@app.get("/api/health")
+def health_check():
+    return {"status": "ok"}
+
 if __name__=="__main__":
     uvicorn.run("src.API.main:app", host="0.0.0.0", port=8000, reload=True)    
 
