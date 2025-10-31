@@ -8,6 +8,7 @@ on:
 
 env:
   DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/fitness-coach-app
+  DB_URI: ${{ secrets.DB_URI }}
 
 jobs:
   # Job 1: Run tests
