@@ -158,7 +158,7 @@ dvc pull    # fetches versioned data/models from S3
 ### 6️⃣ Run Locally
 
 ```bash
-uvicorn src.main:app --host 0.0.0.0 --port 8000
+uvicorn src.API.main:app --host 0.0.0.0 --port 8000
 ```
 
 Access interactive API docs at
